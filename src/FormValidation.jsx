@@ -86,13 +86,13 @@ const FormValidation = () => {
     const selected = tableData[index];
     setInputData(selected);
     setEditIndex(index);
-    
+
   };
 
   return (
     <>
       {/* FORM */}
-      <div className="bg-white rounded-lg w-full max-w-xl mx-auto p-5 mt-5 shadow-xl">
+      <div className="bg-gray-300 rounded-lg w-full max-w-xl mx-auto p-5 mt-5 shadow-xl">
         <h1 className="text-center font-bold text-2xl mb-5">
           Registration Form
         </h1>
