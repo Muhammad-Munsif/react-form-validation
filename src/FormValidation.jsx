@@ -91,7 +91,7 @@ const FormValidation = () => {
   return (
     <>
       {/* FORM */}
-      <div className="bg-white rounded-lg w-full max-w-xl mx-auto p-5 mt-5 shadow-xl">
+      <div className="bg-white rounded-lg w-full max-w-xl mx-auto p-5 mt-5 shadow-xl animate__animated animate__rollIn">
         <h1 className="text-center font-bold text-2xl mb-5">
           Registration Form
         </h1>
@@ -210,7 +210,7 @@ const FormValidation = () => {
       </div>
       {/* table data that come from the FormValidation component for desktop screen and mobile screen */}
 
-      <div className="min-h-screen w-11/12 mx-auto mt-5">
+      <div className="min-h-screen w-11/12 mx-auto mt-5 animate__animated animate__backInUp">
         {/* Desktop Table */}
         <div className="hidden sm:block bg-white rounded-lg shadow overflow-x-auto border border-gray-200 table-auto">
           <table className="min-w-full divide-y divide-gray-200">
