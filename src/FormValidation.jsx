@@ -208,11 +208,11 @@ const FormValidation = () => {
           </button>
         </form>
       </div>
+      {/* table data that come from the FormValidation component for desktop screen and mobile screen */}
 
-      {/* RESPONSIVE TABLE / CARD */}
       <div className="min-h-screen w-11/12 mx-auto mt-5">
         {/* Desktop Table */}
-        <div className="hidden sm:block bg-white rounded-lg shadow overflow-x-auto border border-gray-200">
+        <div className="hidden sm:block bg-white rounded-lg shadow overflow-x-auto border border-gray-200 table-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-100 sticky top-0 z-10 ">
               <tr>
@@ -237,7 +237,7 @@ const FormValidation = () => {
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Password
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs whitespace-nowrap font-medium text-gray-500 uppercase tracking-wider">
                   Hobbies
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
