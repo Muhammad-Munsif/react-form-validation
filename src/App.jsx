@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify'
 
 const App = () => {
   return (
-    <div>
+    <div className='min-h-screen bg-gray-200 py-10'>
       <FormValidation/>
       <ToastContainer/>
     </div>

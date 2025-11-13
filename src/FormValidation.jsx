@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import Table from "./Table";
 const FormValidation = () => {
+    const [tableData, setTableData] =useState([])
   const [inputData, setInputData] = useState({
     firstName: "",
     lastName: "",
@@ -18,10 +20,16 @@ const FormValidation = () => {
       ...preData,
       [name]: value,
     }));
-  };
 
-  const formSubmit = (e) => {
+};
+
+const formSubmit = (e) => {
     e.preventDefault();
+    if(!inputData.fName || !inputData.lastName || !inputData.fName || inputData.cnic || !inputData.email || !inputData.password || !inputData.hobbies || inputData.gender){
+        return;
+    }
+    // Add the new data to the tableData state
+    setTableData([...tableData, inputData]);
     toast.success(console.log("Form data submitted", inputData ), {
         position : 'top-right',
         autoClose : 2000
@@ -39,7 +47,8 @@ const FormValidation = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg w-full max-w-xl mx-auto p-5 mt-5 shadow-xl">
+    <>
+        <div className="bg-white rounded-lg w-full max-w-xl mx-auto p-5 mt-5 shadow-xl">
       <h1 className="text-center font-bold text-2xl mb-5">Registration Form</h1>
       <form>
         <div className="flex flex-col sm:flex-row gap-4 mb-3">
@@ -149,7 +158,6 @@ const FormValidation = () => {
               type="text"
               className="w-full p-2 outline-none border border-gray-300 rounded-lg focus:border-indigo-500 transition duration-150"
               placeholder="Enter your hobbies"
-              readOnly
             />
           </div>
           <div className="flex flex-col w-full sm:w-1/2">
@@ -182,6 +190,30 @@ const FormValidation = () => {
         </div>
       </form>
     </div>
+      <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {tableData.map((entry, index) => (
+              <tr key={index}>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{entry.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.email}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{entry.role}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      
+    
+    </div> 
+    </>
+    
   );
 };
 
