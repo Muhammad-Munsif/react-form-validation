@@ -1,18 +1,7 @@
 import React, { useState } from "react";
 
-const Table = ({
-  firstName,
-  lastName,
-  fName,
-  cnic,
-  email,
-  password,
-  hobbies,
-  gender,
-  handleFormData,
-  formSubmit,
-}) => {
-  const [tabel, setTable] = useState(handleFormData);
+const Table = () => {
+
   return (
     <div className="min-h-screen h-100vh bg-white rounded-lg p-2 shadow-md w-9/12 mx-auto mt-5">
       <table className="bg-gray-200 mx-auto w-9/12 rounded-lg p-2">
@@ -32,7 +21,7 @@ const Table = ({
         </thead>
         <tbody>
           <tr>
-            {tabel.map}
+   
             <td>{firstName}</td>
             <td>{lastName}</td>
             <td>{fName}</td>
