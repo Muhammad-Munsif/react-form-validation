@@ -86,7 +86,6 @@ const FormValidation = () => {
     const selected = tableData[index];
     setInputData(selected);
     setEditIndex(index);
-
   };
 
   return (
