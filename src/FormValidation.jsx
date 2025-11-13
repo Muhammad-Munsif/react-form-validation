@@ -86,6 +86,7 @@ const FormValidation = () => {
     const selected = tableData[index];
     setInputData(selected);
     setEditIndex(index);
+    
   };
 
   return (
@@ -216,33 +217,81 @@ const FormValidation = () => {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-100 sticky top-0 z-10 ">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">S.NO</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">First Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Last Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Father's Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CNIC</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">Email</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Password</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hobbies</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  S.NO
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  First Name
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                  Last Name
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                  Father's Name
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  CNIC
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
+                  Email
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Password
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Hobbies
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Gender
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {tableData.map((entry, index) => (
                 <tr key={index}>
-                  <td className="px-6 py-4 text-sm text-gray-900">{index + 1}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{entry.firstName}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{entry.lastName}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{entry.fName}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{entry.cnic}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{entry.email}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{entry.password}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{entry.hobbies}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{entry.gender}</td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {index + 1}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {entry.firstName}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {entry.lastName}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {entry.fName}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {entry.cnic}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {entry.email}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {entry.password}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {entry.hobbies}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {entry.gender}
+                  </td>
                   <td className="px-6 py-4 text-sm text-gray-900 flex gap-2">
-                    <button onClick={() => handleEdit(index)} className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-sm">Edit</button>
-                    <button onClick={() => handleDelete(index)} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm">Delete</button>
+                    <button
+                      onClick={() => handleEdit(index)}
+                      className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-sm"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(index)}
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -253,22 +302,55 @@ const FormValidation = () => {
         {/* Mobile Card View */}
         <div className="sm:hidden flex flex-col gap-4">
           {tableData.map((entry, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow border border-gray-200 flex flex-col gap-2">
+            <div
+              key={index}
+              className="bg-white p-4 rounded-lg shadow border border-gray-200 flex flex-col gap-2"
+            >
               <div className="flex justify-between">
-                <span className="font-semibold"># {index + 1}</span>
+                <span className="font-semibold">S.No {index + 1}</span>
                 <div className="flex gap-2">
-                  <button onClick={() => handleEdit(index)} className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-sm">Edit</button>
-                  <button onClick={() => handleDelete(index)} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm">Delete</button>
+                  <button
+                    onClick={() => handleEdit(index)}
+                    className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-sm"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(index)}
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
-              <p><span className="font-semibold">First Name:</span> {entry.firstName}</p>
-              <p><span className="font-semibold">Last Name:</span> {entry.lastName}</p>
-              <p><span className="font-semibold">Father's Name:</span> {entry.fName}</p>
-              <p><span className="font-semibold">CNIC:</span> {entry.cnic}</p>
-              <p><span className="font-semibold">Email:</span> {entry.email}</p>
-              <p><span className="font-semibold">Password:</span> {entry.password}</p>
-              <p><span className="font-semibold">Hobbies:</span> {entry.hobbies}</p>
-              <p><span className="font-semibold">Gender:</span> {entry.gender}</p>
+              <p>
+                <span className="font-semibold">First Name:</span>
+                {entry.firstName}
+              </p>
+              <p>
+                <span className="font-semibold">Last Name:</span>
+                {entry.lastName}
+              </p>
+              <p>
+                <span className="font-semibold">Father's Name:</span>
+                {entry.fName}
+              </p>
+              <p>
+                <span className="font-semibold">CNIC:</span> {entry.cnic}
+              </p>
+              <p>
+                <span className="font-semibold">Email:</span> {entry.email}
+              </p>
+              <p>
+                <span className="font-semibold">Password:</span>
+                {entry.password}
+              </p>
+              <p>
+                <span className="font-semibold">Hobbies:</span> {entry.hobbies}
+              </p>
+              <p>
+                <span className="font-semibold">Gender:</span> {entry.gender}
+              </p>
             </div>
           ))}
         </div>
