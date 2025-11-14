@@ -6,7 +6,7 @@ const FormValidation = () => {
   const [tableData, setTableData] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [showPasswordTable, setShowPasswordTable] = useState({});
+  const [tablePassword, setTablePassword] = useState({});
   const [errors, setErrors] = useState({});
 
   const [inputData, setInputData] = useState({
@@ -299,16 +299,16 @@ const FormValidation = () => {
                   <td className="px-4 py-2 text-sm">{entry.cnic}</td>
                   <td className="px-4 py-2 text-sm">{entry.email}</td>
                   <td className="px-4 py-2 text-sm flex items-center gap-1">
-                    {showPasswordTable[index] ? entry.password : "********"}
+                    {tablePassword[index] ? entry.password : "********"}
                     <button
                       onClick={() =>
-                        setShowPasswordTable((prev) => ({
+                        setTablePassword((prev) => ({
                           ...prev,
                           [index]: !prev[index],
                         }))
                       }
                     >
-                      {showPasswordTable[index] ? (
+                      {tablePassword[index] ? (
                         <EyeOff
                           className="text-gray-700 cursor-pointer"
                           size={16}
@@ -388,16 +388,16 @@ const FormValidation = () => {
               </p>
               <p className="flex items-center gap-1">
                 <span className="font-semibold">Password:</span>
-                {showPasswordTable[index] ? entry.password : "********"}
+                {tablePassword[index] ? entry.password : "********"}
                 <button
                   onClick={() =>
-                    setShowPasswordTable((prev) => ({
+                    setTablePassword((prev) => ({
                       ...prev,
                       [index]: !prev[index],
                     }))
                   }
                 >
-                  {showPasswordTable[index] ? (
+                  {tablePassword[index] ? (
                     <EyeOff size={16} />
                   ) : (
                     <Eye size={16} />
