@@ -291,46 +291,51 @@ const FormValidation = () => {
         </table>
       </div>
       <div className="bg-white rounded-lg p-2 w-11/12 mx-auto mt-5 shadow border border-gray-200 max-h-[400px] overflow-hidden">
-  <table className="min-w-full divide-y divide-gray-200 text-sm">
-    <thead className="bg-gray-50 sticky top-0">
-      <tr>
-        <th className="px-4 py-2">S.No</th>
-        <th className="px-4 py-2">First Name</th>
-        <th className="px-4 py-2">Last Name</th>
-        <th className="px-4 py-2">Father's Name</th>
-        <th className="px-4 py-2">CNIC</th>
-        <th className="px-4 py-2">Email</th>
-        <th className="px-4 py-2">Hobbies</th>
-        <th className="px-4 py-2">Gender</th>
-        <th className="px-4 py-2">Actions</th>
-      </tr>
-    </thead>
+        <table className="min-w-full divide-y divide-gray-200 text-sm">
+          <thead className="bg-gray-50 sticky top-0">
+            <tr>
+              <th className="px-4 py-2">S.No</th>
+              <th className="px-4 py-2">First Name</th>
+              <th className="px-4 py-2">Last Name</th>
+              <th className="px-4 py-2">Father's Name</th>
+              <th className="px-4 py-2">CNIC</th>
+              <th className="px-4 py-2">Email</th>
+              <th className="px-4 py-2">Hobbies</th>
+              <th className="px-4 py-2">Gender</th>
+              <th className="px-4 py-2">Actions</th>
+            </tr>
+          </thead>
 
-    <tbody className="divide-y divide-gray-200">
-      {tableData.map((d, index) => (
-        <tr key={index}>
-          <td className="px-4 py-2">{index + 1}</td>
-          <td className="px-4 py-2">{d.firstName}</td>
-          <td className="px-4 py-2">{d.lastName}</td>
-          <td className="px-4 py-2">{d.fName}</td>
-          <td className="px-4 py-2">{d.cnic}</td>
-          <td className="px-4 py-2">{d.email}</td>
-          <td className="px-4 py-2">{d.hobbies}</td>
-          <td className="px-4 py-2">{d.gender}</td>
-          <td className="px-4 py-2 flex gap-3">
-            <button onClick={() => editRow(index)} className="text-blue-600">
-              <Edit size={18} />
-            </button>
-            <button onClick={() => deleteRow(index)} className="text-red-600">
-              <Trash size={18} />
-            </button>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
+          <tbody className="divide-y divide-gray-200">
+            {tableData.map((d, index) => (
+              <tr key={index}>
+                <td className="px-4 py-2">{index + 1}</td>
+                <td className="px-4 py-2">{d.firstName}</td>
+                <td className="px-4 py-2">{d.lastName}</td>
+                <td className="px-4 py-2">{d.fName}</td>
+                <td className="px-4 py-2">{d.cnic}</td>
+                <td className="px-4 py-2">{d.email}</td>
+                <td className="px-4 py-2">{d.hobbies}</td>
+                <td className="px-4 py-2">{d.gender}</td>
+                <td className="px-4 py-2 flex gap-3">
+                  <button
+                    onClick={() => editRow(index)}
+                    className="text-blue-600"
+                  >
+                    <Edit size={18} />
+                  </button>
+                  <button
+                    onClick={() => deleteRow(index)}
+                    className="text-red-600"
+                  >
+                    <Trash size={18} />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
