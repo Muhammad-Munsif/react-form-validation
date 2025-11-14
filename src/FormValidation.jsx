@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { DeleteIcon, Edit, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 
 const FormValidation = () => {
   const [tableData, setTableData] = useState([]);
@@ -37,22 +37,22 @@ const FormValidation = () => {
 
   const validateForm = () => {
     let tempErrors = {};
-    if (!inputData.firstName.trim()) {tempErrors.firstName = "First name is required";
-    if (!inputData.lastName.trim()) {tempErrors.lastName = "Last name is required";}
-    if (!inputData.fName.trim()) {tempErrors.fName = "Father's name is required";}
-    if (!inputData.cnic.trim()) {tempErrors.cnic = "CNIC is required";}
-    if (!inputData.email.trim()) {tempErrors.email = "Email is required";}
-    if (!inputData.password.trim()) {tempErrors.password = "Password is required";}
-    else if (!validatePassword(inputData.password)){
+    if (!inputData.firstName.trim()) tempErrors.firstName = "First name is required";
+    if (!inputData.lastName.trim()) tempErrors.lastName = "Last name is required";
+    if (!inputData.fName.trim()) tempErrors.fName = "Father's name is required";
+    if (!inputData.cnic.trim()) tempErrors.cnic = "CNIC is required";
+    if (!inputData.email.trim()) tempErrors.email = "Email is required";
+    if (!inputData.password.trim()) tempErrors.password = "Password is required";
+    else if (!validatePassword(inputData.password))
       tempErrors.password =
-        "Password must have 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character"};
-    if (!inputData.hobbies.trim()) {tempErrors.hobbies = "Hobbies is required";}
-    if (!inputData.gender.trim()) {tempErrors.gender = "Gender is required";}
+        "Password must have 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character";
+    if (!inputData.hobbies.trim()) tempErrors.hobbies = "Hobbies is required";
+    if (!inputData.gender.trim()) tempErrors.gender = "Gender is required";
 
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
-  }
+
   const formSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -232,7 +232,7 @@ const FormValidation = () => {
 
       {/* Table */}
       <div className="mt-5">
-        <div className="hidden sm:block overflow-y-auto max-h-[400px] border border-gray-200 rounded-lg">
+        <div className="hidden sm:block max-h-[300px] overflow-y-auto border border-gray-200 rounded-lg shadow">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-100 sticky top-0 z-10">
               <tr>
@@ -277,14 +277,12 @@ const FormValidation = () => {
                       onClick={() => handleEdit(index)}
                       className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-sm"
                     >
-                      <Edit/>
                       Edit
                     </button>
                     <button
                       onClick={() => handleDelete(index)}
                       className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm"
                     >
-                      <DeleteIcon  />
                       Delete
                     </button>
                   </td>
