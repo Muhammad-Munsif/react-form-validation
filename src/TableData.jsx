@@ -15,176 +15,126 @@ const DataTable = ({ data, onEdit, onDelete }) => {
     <div className="mt-5">
       {/* Desktop Table with Custom Scrollbar */}
       <div className="hidden sm:block max-h-[200px] overflow-y-auto border border-gray-200 rounded-lg shadow scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-thumb-rounded">
-        {/* Custom Scrollbar Styles */}
-        <style jsx>{`
-          .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-          }
-          /* Firefox */
-          .custom-scrollbar {
-            scrollbar-width: thin;
-            scrollbar-color: #cbd5e1 #f1f5f9;
-          }
-        `}</style>
-
-        <div className="custom-scrollbar max-h-[300px] overflow-y-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-100 sticky top-0 z-10">
-              <tr>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  S.NO
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  First Name
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Last Name
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Father's Name
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  CNIC
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Email
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Password
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Hobbies
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Gender
-                </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {data.map((entry, index) => (
-                <tr
-                  key={index}
-                  className="hover:bg-gray-50 transition-colors duration-150"
-                >
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    {index + 1}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    {entry.firstName}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    {entry.lastName}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    {entry.fName}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    {entry.cnic}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    {entry.email}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono">
-                        {tablePassword[index] ? entry.password : "********"}
-                      </span>
-                      <button
-                        onClick={() => togglePasswordVisibility(index)}
-                        className="p-1 hover:bg-gray-200 rounded transition-colors"
-                        title={
-                          tablePassword[index]
-                            ? "Hide password"
-                            : "Show password"
-                        }
-                      >
-                        {tablePassword[index] ? (
-                          <EyeOff className="text-gray-600" size={14} />
-                        ) : (
-                          <Eye className="text-gray-600" size={14} />
-                        )}
-                      </button>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    {entry.hobbies}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
-                    <span
-                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        entry.gender === "Male"
-                          ? "bg-blue-100 text-blue-800"
-                          : entry.gender === "Female"
-                          ? "bg-pink-100 text-pink-800"
-                          : "bg-purple-100 text-purple-800"
-                      }`}
-                    >
-                      {entry.gender}
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-100 sticky top-0 z-10">
+            <tr>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                S.NO
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                First Name
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Last Name
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Father's Name
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                CNIC
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Email
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Password
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Hobbies
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Gender
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {data.map((entry, index) => (
+              <tr
+                key={index}
+                className="hover:bg-gray-50 transition-colors duration-150"
+              >
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  {index + 1}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  {entry.firstName}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  {entry.lastName}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  {entry.fName}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  {entry.cnic}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  {entry.email}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono">
+                      {tablePassword[index] ? entry.password : "********"}
                     </span>
-                  </td>
-                  <td className="px-4 py-3 text-sm whitespace-nowrap">
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => onEdit(index)}
-                        className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-sm transition-colors duration-200"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => onDelete(index)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm transition-colors duration-200"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                    <button
+                      onClick={() => togglePasswordVisibility(index)}
+                      className="p-1 hover:bg-gray-200 rounded transition-colors"
+                      title={
+                        tablePassword[index] ? "Hide password" : "Show password"
+                      }
+                    >
+                      {tablePassword[index] ? (
+                        <EyeOff className="text-gray-600" size={14} />
+                      ) : (
+                        <Eye className="text-gray-600" size={14} />
+                      )}
+                    </button>
+                  </div>
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  {entry.hobbies}
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900 whitespace-nowrap">
+                  <span
+                    className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                      entry.gender === "Male"
+                        ? "bg-blue-100 text-blue-800"
+                        : entry.gender === "Female"
+                        ? "bg-pink-100 text-pink-800"
+                        : "bg-purple-100 text-purple-800"
+                    }`}
+                  >
+                    {entry.gender}
+                  </span>
+                </td>
+                <td className="px-4 py-3 text-sm whitespace-nowrap">
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => onEdit(index)}
+                      className="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md text-sm transition-colors duration-200"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => onDelete(index)}
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm transition-colors duration-200"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       {/* Mobile Cards with Custom Scrollbar */}
       <div className="sm:hidden">
-        <style jsx>{`
-          .mobile-scrollbar::-webkit-scrollbar {
-            width: 6px;
-          }
-          .mobile-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 3px;
-          }
-          .mobile-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
-          }
-          .mobile-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-          }
-          /* Firefox */
-          .mobile-scrollbar {
-            scrollbar-width: thin;
-            scrollbar-color: #cbd5e1 #f1f5f9;
-          }
-        `}</style>
-
-        <div className="mobile-scrollbar max-h-[400px] overflow-y-auto flex flex-col gap-3 p-1">
+        <div className="max-h-[400px] overflow-y-auto flex flex-col gap-3 p-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-thumb-rounded">
           {data.map((entry, index) => (
             <div
               key={index}
@@ -192,7 +142,7 @@ const DataTable = ({ data, onEdit, onDelete }) => {
             >
               <div className="flex items-center justify-between mb-3 pb-2 border-b">
                 <span className="font-bold text-lg text-gray-800">
-                  #{index + 1}
+                  s.no {index + 1}
                 </span>
                 <div className="flex gap-2">
                   <button
@@ -226,26 +176,26 @@ const DataTable = ({ data, onEdit, onDelete }) => {
                   </div>
                 </div>
 
-                <div>
+                <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-700">
                     Father's Name:
                   </span>
                   <p className="text-gray-900">{entry.fName}</p>
                 </div>
 
-                <div>
+                <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-700">CNIC:</span>
                   <p className="text-gray-900 font-mono">{entry.cnic}</p>
                 </div>
 
-                <div>
+                <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-700">Email:</span>
                   <p className="text-gray-900 break-all">{entry.email}</p>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-700">Password:</span>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 justify-between">
                     <span className="font-mono">
                       {tablePassword[index] ? entry.password : "********"}
                     </span>
@@ -262,12 +212,12 @@ const DataTable = ({ data, onEdit, onDelete }) => {
                   </div>
                 </div>
 
-                <div>
+                <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-700">Hobbies:</span>
                   <p className="text-gray-900">{entry.hobbies}</p>
                 </div>
 
-                <div>
+                <div className="flex items-center justify-between">
                   <span className="font-semibold text-gray-700">Gender:</span>
                   <span
                     className={`inline-block px-2 py-1 text-xs font-semibold rounded-full ml-2 ${
