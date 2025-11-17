@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Search } from "lucide-react";
 
 const DataTable = ({ data, onEdit, onDelete }) => {
   const [tablePassword, setTablePassword] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Search logic inside DataTable
+  const filteredData = data.filter((item) =>
+    Object.values(item).some((value) =>
+      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
 
   const togglePasswordVisibility = (index) => {
     setTablePassword((prev) => ({
@@ -15,6 +23,22 @@ const DataTable = ({ data, onEdit, onDelete }) => {
     <div className="mt-5">
       {/* Desktop Table with Custom Scrollbar */}
       <div className="hidden sm:block max-h-[200px] overflow-y-auto border border-gray-200 rounded-lg shadow scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-thumb-rounded">
+        {/* Add Search Bar in DataTable */}
+        <div className=" ">
+          <div className="">
+            <Search
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              size={20}
+            />
+            <input
+              type="text"
+              placeholder="Search in records..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none"
+            />
+          </div>
+        </div>
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-100 sticky top-0 z-10">
             <tr>
@@ -51,7 +75,7 @@ const DataTable = ({ data, onEdit, onDelete }) => {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {data.map((entry, index) => (
+            {filteredData.map((entry, index) => (
               <tr
                 key={index}
                 className="hover:bg-gray-50 transition-colors duration-150"
@@ -135,7 +159,7 @@ const DataTable = ({ data, onEdit, onDelete }) => {
       {/* Mobile Cards with Custom Scrollbar */}
       <div className="sm:hidden">
         <div className="max-h-[400px] overflow-y-auto flex flex-col gap-3 p-1 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-thumb-rounded">
-          {data.map((entry, index) => (
+          {filteredData.map((entry, index) => (
             <div
               key={index}
               className="bg-white p-4 shadow-lg border-l-4 border-indigo-600 rounded-lg hover:shadow-xl transition-shadow duration-200"
@@ -238,11 +262,15 @@ const DataTable = ({ data, onEdit, onDelete }) => {
       </div>
 
       {/* Empty State */}
-      {data.length === 0 && (
+      {filteredData.length === 0 && (
         <div className="text-center py-8 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-          <p className="text-gray-500 text-lg">No records found</p>
+          <p className="text-gray-500 text-lg">
+            {searchTerm ? "No matching records found" : "No records found"}
+          </p>
           <p className="text-gray-400 text-sm mt-1">
-            Submit the form above to add records
+            {searchTerm
+              ? "Try a different search term"
+              : "Submit the form above to add records"}
           </p>
         </div>
       )}

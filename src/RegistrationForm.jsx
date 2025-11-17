@@ -105,9 +105,11 @@ const RegistrationForm = ({ onSubmit, editData, isEditing, onCancelEdit }) => {
 
   return (
     <div className="bg-white rounded-lg p-5 shadow-xl animate__animated animate__rollIn max-w-xl mx-auto">
-      <h1 className="text-center font-bold text-2xl mb-5">
-        {isEditing ? "Edit Record" : "Registration Form"}
-      </h1>
+      <div className="">
+        <h1 className="text-center font-bold text-2xl mb-5">
+          {isEditing ? "Edit Record" : "Registration Form"}
+        </h1>
+      </div>
       <form onSubmit={formSubmit}>
         <div className="flex flex-col sm:flex-row gap-4 mb-3">
           <div className="flex flex-col w-full sm:w-1/2">

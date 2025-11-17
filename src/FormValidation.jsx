@@ -6,6 +6,14 @@ import TableData from "./TableData";
 const FormValidation = () => {
   const [tableData, setTableData] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Add search logic function
+  const filteredData = tableData.filter((item) =>
+    Object.values(item).some((value) =>
+      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
 
   const handleFormSubmit = (formData, isEdit) => {
     if (isEdit) {
@@ -37,6 +45,7 @@ const FormValidation = () => {
 
   return (
     <div className="w-11/12 mx-auto my-5">
+      
       <RegistrationForm
         onSubmit={handleFormSubmit}
         editData={editIndex !== null ? tableData[editIndex] : null}
@@ -44,7 +53,7 @@ const FormValidation = () => {
         onCancelEdit={cancelEdit}
       />
 
-      <TableData data={tableData} onEdit={handleEdit} onDelete={handleDelete} />
+      <TableData data={filteredData} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
   );
 };
