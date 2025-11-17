@@ -109,7 +109,6 @@ const RegistrationForm = ({ onSubmit, editData, isEditing, onCancelEdit }) => {
         {isEditing ? "Edit Record" : "Registration Form"}
       </h1>
       <form onSubmit={formSubmit}>
-        {/* Names */}
         <div className="flex flex-col sm:flex-row gap-4 mb-3">
           <div className="flex flex-col w-full sm:w-1/2">
             <label className="font-semibold">First Name</label>

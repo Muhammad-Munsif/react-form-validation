@@ -43,12 +43,8 @@ const FormValidation = () => {
         isEditing={editIndex !== null}
         onCancelEdit={cancelEdit}
       />
-      
-      <TableData
-        data={tableData}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-      />
+
+      <TableData data={tableData} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
   );
 };
