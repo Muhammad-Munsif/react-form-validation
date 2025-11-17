@@ -24,10 +24,10 @@ const DataTable = ({ data, onEdit, onDelete }) => {
       {/* Desktop Table with Custom Scrollbar */}
       <div className="hidden sm:block max-h-[200px] overflow-y-auto border border-gray-200 rounded-lg shadow scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-thumb-rounded">
         {/* Add Search Bar in DataTable */}
-        <div className=" ">
-          <div className="">
+        
+          <div className="relative">
             <Search
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-semibold"
               size={20}
             />
             <input
@@ -35,10 +35,10 @@ const DataTable = ({ data, onEdit, onDelete }) => {
               placeholder="Search in records..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none"
+              className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none bg-white"
             />
           </div>
-        </div>
+    
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-100 sticky top-0 z-10">
             <tr>

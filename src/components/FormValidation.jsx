@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import RegistrationForm from "./RegistrationForm";
-import TableData from "./TableData";
+import RegistrationForm from "../components/RegistrationForm";
+import TableData from "../components/TableData";
 
 const FormValidation = () => {
   const [tableData, setTableData] = useState([]);

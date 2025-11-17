@@ -1,6 +1,6 @@
 import React from "react";
 import "animate.css";
-import FormValidation from "./FormValidation";
+import FormValidation from "./components/FormValidation";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
