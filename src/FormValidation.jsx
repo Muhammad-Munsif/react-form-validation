@@ -45,7 +45,6 @@ const FormValidation = () => {
 
   return (
     <div className="w-11/12 mx-auto my-5">
-      
       <RegistrationForm
         onSubmit={handleFormSubmit}
         editData={editIndex !== null ? tableData[editIndex] : null}
@@ -53,7 +52,11 @@ const FormValidation = () => {
         onCancelEdit={cancelEdit}
       />
 
-      <TableData data={filteredData} onEdit={handleEdit} onDelete={handleDelete} />
+      <TableData
+        data={filteredData}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+      />
     </div>
   );
 };
