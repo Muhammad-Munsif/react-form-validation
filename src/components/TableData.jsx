@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, Search } from "lucide-react";
 
-const DataTable = ({ data, onEdit, onDelete }) => {
+const TableData = ({ data, onEdit, onDelete }) => {
   const [tablePassword, setTablePassword] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -278,3 +278,4 @@ const DataTable = ({ data, onEdit, onDelete }) => {
   );
 };
 
+export default TableData;
