@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-200 py-10">
+    <div className="min-h-screen bg-gray-200 py-10 h-screen no-scrollbar overflow-y-scroll">
       <FormValidation />
       <ToastContainer />
     </div>

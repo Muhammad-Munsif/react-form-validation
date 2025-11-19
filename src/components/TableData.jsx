@@ -20,12 +20,12 @@ const DataTable = ({ data, onEdit, onDelete }) => {
   };
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 overflow-x-hidden">
       {/* Desktop Table with Custom Scrollbar */}
-      <div className="hidden sm:block max-h-[200px] overflow-y-auto border border-gray-200 rounded-lg shadow scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-thumb-rounded">
+      <div className="hidden sm:block max-h-[200px] sticky top-0 z-10 overflow-y-auto border border-gray-200 rounded-lg shadow scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 scrollbar-thumb-rounded">
         {/* Add Search Bar in DataTable */}
 
-        <div className="relative">
+        <div className="relative ">
           <Search
             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black font-semibold"
             size={20}
@@ -39,7 +39,7 @@ const DataTable = ({ data, onEdit, onDelete }) => {
           />
         </div>
 
-        <table className="min-w-full divide-y divide-gray-200">
+        <table className="min-w-full divide-y divide-gray-200 overflow-x-hidden">
           <thead className="bg-gray-100 sticky top-0 z-10">
             <tr>
               <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
