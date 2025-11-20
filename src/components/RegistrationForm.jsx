@@ -165,7 +165,7 @@ const RegistrationForm = ({ onSubmit, editData, isEditing, onCancelEdit }) => {
               value={inputData.cnic}
               onChange={handleFormData}
               type="text"
-              placeholder="CNIC number"
+              placeholder="XXXXX-XXXXXXX-X"
               className="w-full p-2 border border-gray-300 rounded-lg focus:border-indigo-500"
             />
             {errors.cnic && (
