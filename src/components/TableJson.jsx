@@ -1,17 +1,18 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const TableJson = () => {
-  const [columns, setColumns] = useState([ID, name, email, password]);    
-  const [records, setRecords] = useState([]);     
+  const [columns, setColumns] = useState([ID, name, email, password]);
+  const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/users')
-      .then(res => {
-        setColumns(Object.keys(res.data[0]));   
-        setRecords(res.data);                    
+    axios
+      .get("http://localhost:5000/users")
+      .then((res) => {
+        setColumns(Object.keys(res.data[0]));
+        setRecords(res.data);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
   return (
