@@ -2,14 +2,14 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 const TableJson = () => {
-  const [columns, setColumns] = useState([]);     // ❌ Fix: This must be an array
-  const [records, setRecords] = useState([]);     // ❌ Fix: This must be an array
+  const [columns, setColumns] = useState([ID, name, email, password]);    
+  const [records, setRecords] = useState([]);     
 
   useEffect(() => {
     axios.get('http://localhost:5000/users')
       .then(res => {
-        setColumns(Object.keys(res.data[0]));   // ✔ Extract column names
-        setRecords(res.data);                    // ✔ Correct way of setting data
+        setColumns(Object.keys(res.data[0]));   
+        setRecords(res.data);                    
       })
       .catch(err => console.log(err));
   }, []);
@@ -28,9 +28,10 @@ const TableJson = () => {
         <tbody>
           {records.map((item, index) => (
             <tr key={index}>
-              {columns.map((col, i) => (
-                <td key={i}>{item[col]}</td>      // ✔ Auto print by column name
-              ))}
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.email}</td>
+              <td>{item.password}</td>
             </tr>
           ))}
         </tbody>
