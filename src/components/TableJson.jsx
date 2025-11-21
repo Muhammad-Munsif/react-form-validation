@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const TableJson = () => {
-  const [columns, setColumns] = useState([ID, name, email, password]);
+  const [columns, setColumns] = useState([]);
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
