@@ -1,31 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const UserForm = ({ addUser, editingUser, updateUser }) => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  useEffect(() => {
-    if (editingUser) {
-      setForm(editingUser);
-    }
-  }, [editingUser]);
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+const UserForm = ({ addUser }) => {
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (editingUser) {
-      updateUser(form);
-    } else {
-      addUser(form);
-    }
-
+    addUser(form);
     setForm({ name: "", email: "", password: "" });
   };
 
@@ -34,9 +14,7 @@ const UserForm = ({ addUser, editingUser, updateUser }) => {
       onSubmit={handleSubmit}
       className="bg-white shadow p-4 rounded-lg mb-6"
     >
-      <h2 className="text-xl font-semibold mb-3">
-        {editingUser ? "Edit User" : "Add New User"}
-      </h2>
+      <h2 className="text-xl font-semibold mb-3">Add New User</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <input
@@ -45,7 +23,7 @@ const UserForm = ({ addUser, editingUser, updateUser }) => {
           className="border p-2 rounded"
           placeholder="Name"
           value={form.name}
-          onChange={handleChange}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
           required
         />
 
@@ -55,7 +33,7 @@ const UserForm = ({ addUser, editingUser, updateUser }) => {
           className="border p-2 rounded"
           placeholder="Email"
           value={form.email}
-          onChange={handleChange}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
           required
         />
 
@@ -65,7 +43,7 @@ const UserForm = ({ addUser, editingUser, updateUser }) => {
           className="border p-2 rounded"
           placeholder="Password"
           value={form.password}
-          onChange={handleChange}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
           required
         />
       </div>
@@ -74,7 +52,7 @@ const UserForm = ({ addUser, editingUser, updateUser }) => {
         type="submit"
         className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg"
       >
-        {editingUser ? "Update User" : "Add User"}
+        Add User
       </button>
     </form>
   );
